@@ -17,6 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useState } from "react";
+import { SignupModal, SigninModal } from "@/components";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -57,6 +59,16 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 const Navbar = () => {
+  const [signinOpen, setSigninOpen] = useState(false);
+  const [signupOpen, setSignupOpen] = useState(false);
+
+  const onCloseSignin = () => {
+    setSigninOpen(false);
+  };
+  const onCloseSignup = () => {
+    setSignupOpen(false);
+  };
+
   return (
     <nav className=" bg-white md:py-2 py-3 px-5 md:px-10 flex justify-between items-center md:space-x-5 w-full border-b border-gray-300">
       <div className="hidden md:flex items-center space-x-10">
@@ -127,10 +139,16 @@ const Navbar = () => {
             </Select>
           </li>
           <li>
-            <Link to="/register">Register</Link>
+            <Link to="#" onClick={() => setSignupOpen(true)}>
+              Sign up
+            </Link>
+            <SignupModal isOpen={signupOpen} onClose={onCloseSignup} />
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="#" onClick={() => setSigninOpen(true)}>
+              Log in
+            </Link>
+            <SigninModal isOpen={signinOpen} onClose={onCloseSignin} />
           </li>
         </ul>
 
