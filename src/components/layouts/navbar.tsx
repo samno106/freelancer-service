@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 import { SignupModal, SigninModal } from "@/components";
+import langKh from "../../assets/images/flkh.png";
+import langEn from "../../assets/images/flen.png";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -57,6 +59,7 @@ const components: { title: string; href: string; description: string }[] = [
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
 ];
+
 
 const Navbar = () => {
   const [signinOpen, setSigninOpen] = useState(false);
@@ -127,24 +130,29 @@ const Navbar = () => {
         <ul className="flex items-center space-x-8 text-sm font-[500] text-gray-700">
           <li>
             <Select defaultValue="en">
-              <SelectTrigger className="w-[95px] border-none focus:border-none focus:ring-white focus:outline-none">
+              <SelectTrigger className="w-[65px] border-none focus:border-none focus:ring-white focus:outline-none">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectItem value="en">English</SelectItem>
-                  <SelectItem value="kh">Khmer</SelectItem>
+                  <SelectItem value="en">
+                  <img src={langEn} alt="en" className="w-5 h-5" />
+                  </SelectItem>
+                  <SelectItem value="kh">
+                    <img src={langKh} alt="kh" className="w-5 h-5" />
+
+                  </SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
           </li>
-          <li>
+          <li className="hover:text-blue-500">
             <Link to="#" onClick={() => setSignupOpen(true)}>
               Sign up
             </Link>
             <SignupModal isOpen={signupOpen} onClose={onCloseSignup} />
           </li>
-          <li>
+          <li className="hover:text-blue-500">
             <Link to="#" onClick={() => setSigninOpen(true)}>
               Log in
             </Link>

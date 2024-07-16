@@ -22,8 +22,8 @@ export const SigninModal: React.FC<SigninModalProps> = ({
       overlay="bg-black/30"
     >
       <div className=" space-y-8">
-        <h3 className="leading-6 text-xl font-semibold">Sign In</h3>
-        <Button className="w-full">Sign in with email</Button>
+        <h3 className="leading-6 text-xl font-semibold">Sign in</h3>
+        <Button className="w-full ">Sign in with email</Button>
         <div className="h-3.5 border-b border-gray-300 text-center align-middle">
           <span className="bg-white px-5 text-xs text-gray-500">
             OR CONTINUE WITH
